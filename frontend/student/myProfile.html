@@ -1,11 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Profile</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .profile-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+      }
+      .deactivate-btn {
+        background-color: red;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-4">
+          <!-- Profile Image -->
+          <img
+            src="dog_profile_pic.png"
+            alt="Profile Image"
+            class="profile-img mb-3"
+          />
+        </div>
+        <div class="col-md-8">
+          <!-- Profile Information -->
+          <h3>Profile Information</h3>
+          <form>
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" class="form-control" placeholder="Name" />
+            </div>
+            <div class="form-group">
+              <label>Grade</label>
+              <input type="text" class="form-control" placeholder="Grade" />
+            </div>
+            <div class="form-group">
+              <label>Major</label>
+              <input type="text" class="form-control" placeholder="Major" />
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Password"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Update Profile
+            </button>
+          </form>
+          <!-- Deactivate Account Button -->
+          <button class="btn deactivate-btn mt-3">Deactivate Account</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
 </html>
