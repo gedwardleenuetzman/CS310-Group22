@@ -6,11 +6,12 @@ document.addEventListener("DOMContentLoaded", function() {
         users.forEach(user => {
             var row = usersTable.insertRow();
             row.innerHTML = `
-                <td>${user.name}</td>
-                <td>${user.email}</td>
-                <td>${user.role}</td>
-                <td>${user.address}</td>
-                <td>${user.phoneNumber}</td>
+                <td>${user.First_Name}</td>
+                <td>${user.M_Initial}</td>
+                <td>${user.Last_Name}</td>
+                <td>${user.Username}</td>
+                <td>${user.Email}</td>
+                <td>${user.Discord_Name}</td>
                 <td>
                     <button class="btn btn-primary btn-sm">Modify</button>
                     <button class="btn btn-warning btn-sm">Soft Delete</button>
@@ -23,3 +24,19 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error('Error fetching users:', error);
     });
 });
+
+
+document.getElementById('registerBtn').onclick = function(event) {
+    event.preventDefault();
+    document.getElementById('registerModal').style.display = 'block';
+};
+
+document.getElementsByClassName('close')[0].onclick = function() {
+    document.getElementById('registerModal').style.display = 'none';
+};
+
+window.onclick = function(event) {
+    if (event.target == document.getElementById('registerModal')) {
+        document.getElementById('registerModal').style.display = 'none';
+    }
+};
