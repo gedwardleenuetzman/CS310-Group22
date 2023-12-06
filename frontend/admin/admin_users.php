@@ -9,6 +9,8 @@
     />
   </head>
   <body>
+    <?php include('navbar.php'); ?> <!-- Include the navbar component -->
+
     <div class="container mt-5">
       <div class="row mb-3">
         <div class="col">
