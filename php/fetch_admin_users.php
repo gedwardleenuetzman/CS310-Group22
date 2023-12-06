@@ -1,6 +1,6 @@
 <?php
 // Replace with your actual database credentials
-$servername = "http://cs310group22.000webhostapp.com";
+$servername = "localhost";
 $username = "id21627112_cs310_22";
 $password = "Group22@TAMU";
 $dbname = "id21627112_project_db";

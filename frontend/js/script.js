@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    fetch('fetch_users.php') // PHP script that returns user data from the database
+    fetch('fetch_admin_users.php') // PHP script that returns user data from the database
     .then(response => response.json())
     .then(users => {
         var usersTable = document.getElementById('usersTable');
