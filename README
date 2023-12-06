@@ -1,1 +1,10 @@
 # CSCE 310 - Group 22 Project
+
+
+Edited table or column names:
+- Hispanic/Latino -> Hispanic_Latino
+- U.S. Citizen -> US_Citizen
+- DoB, Date of Birth -> DoB
+- Minor #1 -> Minor_1
+- Minor #2 -> Minor_2
+- All 'Year' fields are 'Year' and not 'YEAR'
