@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+
 document.getElementById('registerBtn').onclick = function(event) {
     event.preventDefault();
     document.getElementById('registerModal').style.display = 'block';
