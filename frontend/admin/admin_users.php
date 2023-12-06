@@ -9,7 +9,7 @@
     />
   </head>
   <body>
-    <?php include('navbar.php'); ?> <!-- Include the navbar component -->
+    <?php include('../components/admin_navbar.php'); ?> <!-- Include the navbar component -->
 
     <div class="container mt-5">
       <div class="row mb-3">
