@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // SQL query to fetch all users
-$sql = "SELECT First_Name, M_Initial, Last_Name, Username, Email, Discord_Name FROM User";
+$sql = "SELECT First_Name, M_Initial, Last_Name, Username, Email, Discord_Name FROM Users";
 
 $result = $conn->query($sql);
 

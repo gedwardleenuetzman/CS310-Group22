@@ -18,16 +18,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="../frontend/admin/admin_users.php">Users</a>
+              <a class="nav-link" href="../admin/admin_users.php">Users</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../frontend/admin/admin_programs.php">Programs</a>
+              <a class="nav-link" href="../admin/admin_programs.php">Programs</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../frontend/admin/admin_progress.php">Progress</a>
+              <a class="nav-link" href="../admin/admin_progress.php">Progress</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../frontend/admin/admin_events.php">Events</a>
+              <a class="nav-link" href="../admin/admin_events.php">Events</a>
             </li>
           </ul>
         </div>
