@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       // Create table header row
       var headerRow = table.insertRow(0);
-      headerRow.innerHTML = '<th>Name</th><th>Description</th><th>Edit</th><th>Delete</th><th>Report</th>';
+      headerRow.innerHTML = '<th>Name</th><th>Description</th><th>Edit</th><th>Delete</th><th>Delete For Real</th><th>Report</th>';
 
       // Populate the table with program data
       data.forEach(program => {
@@ -33,17 +33,40 @@ document.addEventListener("DOMContentLoaded", function() {
         var deleteButton = document.createElement('button');
         deleteButton.innerText = 'Delete';
         deleteButton.addEventListener('click', function() {
-          // Delete stuff
+          fetch(`/../php/delete_program.php?id=${program.Program_Num}`, {
+            method: 'DELETE', // Use the DELETE method for deleting records
+          })
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error(`HTTP error! Status: ${response.status}`);
+              }
+              return response.json(); // Assuming your PHP script returns JSON
+          })
+          .then(data => {
+              console.log(data); // Handle the response data as needed
+              location.reload();
+            })
+          .catch(error => {
+              console.error('Error:', error);
+          });
         });
         cell4.appendChild(deleteButton);
 
         var cell5 = row.insertCell(4);
+        var deletefrfr = document.createElement('button');
+        deletefrfr.innerText = 'Delete For Real';
+        deletefrfr.addEventListener('click', function() {
+          // Delete frfr
+        });
+        cell5.appendChild(deletefrfr);
+
+        var cell6 = row.insertCell(5);
         var reportButton = document.createElement('button');
         reportButton.innerText = 'View Report';
         reportButton.addEventListener('click', function() {
           // Redirect to report page
         });
-        cell5.appendChild(reportButton);
+        cell6.appendChild(reportButton);
       });
 
       // Append the table to the programDiv
