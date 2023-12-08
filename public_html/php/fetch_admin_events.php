@@ -8,7 +8,7 @@ header('Content-Type: application/json');
 require_once './database_connection.php';
 
 // SQL query to fetch all users
-$sql = "SELECT Event_Type, Location, Start_Date, Start_Time, Event_ID FROM Events"; 
+$sql = "SELECT Event_Type, Location, Start_Date, Start_Time, Event_ID FROM Event"; 
 
 $result = $conn->query($sql);
 
