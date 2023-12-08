@@ -25,8 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Check response data for login success
             if (data.success) {
                 // Store username in sessionStorage and redirect
-                sessionStorage.setItem('username', data.username);
-                sessionStorage.setItem('uin', data.uin);
+                sessionStorage.setItem('username', username);
                 window.location.href = './admin_landing.html';
             } else {
                 // If login failed, display the error message
