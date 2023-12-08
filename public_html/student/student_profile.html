@@ -17,40 +17,25 @@
         <div class="col-md-8">
           <!-- Profile Information -->
           <h3>Profile Information</h3>
-          <form>
-            <div class="form-group">
-              <label>Name</label>
-              <input type="text" class="form-control" placeholder="Name" />
-            </div>
-            <div class="form-group">
-              <label>Grade</label>
-              <input type="text" class="form-control" placeholder="Grade" />
-            </div>
-            <div class="form-group">
-              <label>Major</label>
-              <input type="text" class="form-control" placeholder="Major" />
-            </div>
-            <div class="form-group">
-              <label>Password</label>
-              <input
-                type="password"
-                class="form-control"
-                placeholder="Password"
-              />
-            </div>
-            <button type="submit" class="btn btn-primary">
-              Update Profile
-            </button>
-          </form>
-          <!-- Deactivate Account Button -->
-          <button class="btn deactivate-btn mt-3">Deactivate Account</button>
+          <p><strong>First Name:</strong> <span id="firstName"></span></p>
+          <p><strong>Last Name:</strong> <span id="lastName"></span></p>
+          <p><strong>Grade:</strong> <span id="grade"></span></p>
+          <p><strong>Major:</strong> <span id="major"></span></p>
+          <!-- Buttons -->
+          <button id="updateProfileBtn" class="btn btn-primary mt-3">
+            Update Account
+          </button>
+          <button id="deactivateBtn" class="btn deactivate-btn mt-3">
+            Deactivate Account
+          </button>
         </div>
       </div>
     </div>
-
     <!-- Bootstrap JS and Popper.js -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Custom Script -->
+    <script src="../js/student_profile_script.js"></script>
   </body>
 </html>
