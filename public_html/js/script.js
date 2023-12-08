@@ -40,3 +40,31 @@ window.onclick = function(event) {
         document.getElementById('registerModal').style.display = 'none';
     }
 };
+
+// for student login
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var username = document.getElementById('inputUsername').value;
+        var password = document.getElementById('inputPassword').value;
+        
+        // AJAX request to backend
+        
+        fetch('../php/student_login.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle response here (e.g., redirect or show error)
+            sessionStorage.setItem('username', username);
+            window.location.href = './student_landing.html';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+});
