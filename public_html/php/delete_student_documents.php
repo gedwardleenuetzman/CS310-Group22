@@ -16,7 +16,7 @@ if (isset($_GET['id'])) {
       die("Connection failed: " . $conn->connect_error);
   }
 
-  $sql = "DELETE FROM documentation WHERE Doc_Num = '$id';";
+  $sql = "DELETE FROM Document WHERE Doc_Num = '$id'";
   
   $result = $conn->query($sql);
   

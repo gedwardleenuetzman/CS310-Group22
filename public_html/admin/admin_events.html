@@ -1,12 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Events</title>
+    <title>Admin Users Page</title>
+    <!-- Include Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="../../style.css" />
   </head>
   <body>
-    <!-- Include the navbar component -->
+    <div id="navbar-placeholder"></div>
+    <div class="container mt-5">
+      <div class="row mb-3">
+        <div class="col">
+          <button id="addEventBtn" class="btn btn-primary">
+            <i class="fa fa-plus"></i> Add New Event
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>${user.Event_Type}</th>
+                <th>${user.Location}</th>
+                <th>${user.Start_Date}</th>
+                <th>${user.Start_Time}</th>
+                <th>${user.Event_ID}</th>
+              </tr>
+            </thead>
+            <tbody id="eventsTable">
+              <!-- User data will be inserted here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Include Bootstrap JS and FontAwesome for icons -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="../js/admin_events_script.js"></script>
+    <script>
+      fetch("../components/admin_navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
+        });
+    </script>
   </body>
 </html>
