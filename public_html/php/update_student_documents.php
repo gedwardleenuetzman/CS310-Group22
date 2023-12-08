@@ -5,8 +5,9 @@ $username = "id21627112_cs310_22";
 $password = "Group22@TAMU";
 $dbname = "id21627112_project_db";
 
-if (isset($_GET['id'])) {
+if (isset($_GET['id'], $_GET['link'])) {
   $id = $_GET['id'];
+  $link = $_GET['link'];
 
   // Create connection
   $conn = new mysqli($servername, $username, $password, $dbname);
@@ -16,15 +17,15 @@ if (isset($_GET['id'])) {
       die("Connection failed: " . $conn->connect_error);
   }
 
-  $sql = "DELETE FROM documentation WHERE Doc_Num = '$id';";
+  $sql = "UPDATE documentation SET Link = '$link' WHERE Doc_Num = '$id';";
   
   $result = $conn->query($sql);
   
   if ($result === true) {
-    echo "Delete operation successful.";
+    echo "Edit operation successful.";
   } else {
       echo "Error deleting record: " . $conn->error;
   }
 } else {
-  echo "Missing Document ID";
+  echo "A parameter is missing.";
 }

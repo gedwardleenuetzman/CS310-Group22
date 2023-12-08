@@ -43,8 +43,25 @@ document.addEventListener("DOMContentLoaded", function() {
           var editButton = document.createElement('button');
           editButton.textContent = 'Edit';
           editButton.addEventListener('click', function() {
-            // Handle edit logic here
             console.log('Edit clicked for Doc_Num:', doc.Doc_Num);
+
+            let newLink = prompt('Enter new link:', doc.Link);
+            if (newLink == null || newLink == '') return;
+            
+            fetch(`/update_document.php?uin=${studentUIN}&id=${doc.Doc_Num}&link=${encodeURIComponent(newLink)}`, {
+              method: 'PUT', // Use the PUT method for updating records
+            })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+              }
+            })
+            .then(data => {
+              location.reload();
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
           });
           editCell.appendChild(editButton);
 
@@ -66,7 +83,8 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .then(data => {
                 console.log(data); // Handle the response data as needed
-            })
+                location.reload();
+              })
             .catch(error => {
                 console.error('Error:', error);
             });
