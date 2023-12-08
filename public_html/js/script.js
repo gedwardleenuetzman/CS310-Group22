@@ -68,3 +68,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('/../php/fetch_events.php') // PHP script that returns user data from the database
+    .then(response => response.json())
+    .then(users => {
+        var eventsTable = document.getElementById('eventsTable');
+        events.forEach(event => {
+            var row = eventsTable.insertRow();
+            row.innerHTML = `
+                <td>${event.Event_ID}</td>
+                <td>${event.Program_Num}</td>
+                <td>${event.Start_Date}</td>
+                <td>${event.Location}</td>
+                <td>${event.Event_Type}</td>
+                <td>
+                    <button class="btn btn-primary btn-sm">Modify</button>
+                    <button class="btn btn-warning btn-sm">Soft Delete</button>
+                    <button class="btn btn-danger btn-sm">Hard Delete</button>
+                </td>
+            `;
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching events:', error);
+    });
+});

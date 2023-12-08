@@ -1,11 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Events</title>
+    <title>Event Viewing Page</title>
+    <!-- Include Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
   </head>
   <body>
     <!-- Include the navbar component -->
+
+    <div class="container mt-5">
+      <div class="row mb-3">
+        <div class="col">
+          <button id="addUserBtn" class="btn btn-primary">
+            <i class="fa fa-plus"></i> Add New Event
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Event Number</th>
+                <th>Program Number</th>
+                <th>Start Date</th>
+                <th>Location</th>
+                <th>Event Type</th>
+              </tr>
+            </thead>
+            <tbody id="eventsTable">
+              <!-- Event data will be inserted here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Include Bootstrap JS and FontAwesome for icons -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="../js/script.js"></script>
+    <!-- Your custom JavaScript -->
   </body>
 </html>
