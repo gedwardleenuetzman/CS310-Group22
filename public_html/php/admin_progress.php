@@ -1,5 +1,28 @@
 <?php
+// Start a new session
+session_start();
+
+// Set header to return JSON content
+header('Content-Type: application/json');
+
 require_once './database_connection.php';
+
+// SQL query to fetch all users
+$sql = "SELECT CE_Num, UIN, Class_ID, Status, Semester, Year FROM Class_Enrollment";
+
+$result = $conn->query($sql);
+
+$enrollments = array();
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        $enrollments[] = $row;
+    }
+    echo json_encode($enrollments);
+} else {
+    echo json_encode([]);
+}
 
 // Handle form submissions
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -11,23 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif (isset($_POST["insert"])) {
         addClassEnrollment();
     }
-}
-
-function populateTable() {
-    // Build the query to retrieve all values from Class_Enrollment
-    $table_name = "Class_Enrollment";
-    $uin = $GET["UIN"];
-    $query_str = "SELECT * FROM {$table_name} WHERE UIN = {$uin}";
-
-    // Call the buildEditableTable function
-    buildEditableTable($conn, $query_str, array(
-        "CE_Num" => array("label" => "CE_Num", "type" => "text", "editable" => false),
-        "UIN" => array("label" => "UIN", "type" => "text", "editable" => false),
-        "Class_ID" => array("label" => "Class ID", "type" => "text", "editable" => true),
-        "Status" => array("label" => "Status", "type" => "text", "editable" => true),
-        "Semester" => array("label" => "Semester", "type" => "text", "editable" => true),
-        "Year" => array("label" => "Year", "type" => "number", "editable" => true)
-    ));
 }
 
 // Progress utility functions
@@ -68,5 +74,6 @@ function insertClassEnrollment() {
     $conn->query($sql);
 }
 
+$conn->close();
 
 ?>
