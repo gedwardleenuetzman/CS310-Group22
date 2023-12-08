@@ -1,6 +1,6 @@
-// for student login
+// for admin login
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('studentLoginForm').addEventListener('submit', function(event) {
+    document.getElementById('adminLoginForm').addEventListener('submit', function(event) {
         event.preventDefault();
         var username = document.getElementById('inputUsername').value;
         var password = document.getElementById('inputPassword').value;
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.success) {
                 // Store username in sessionStorage and redirect
                 sessionStorage.setItem('username', username);
-                window.location.href = './student_landing.html';
+                window.location.href = './admin_landing.html';
             } else {
                 // If login failed, display the error message
                 alert(data.message);
