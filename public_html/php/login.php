@@ -38,8 +38,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($inputPassword === $password_result) {
                 $_SESSION["loggedin"] = true;
                 $_SESSION["username"] = $username_result;
+                $_SESSION["UIN"] = $uin_result;
 
-                echo json_encode(["success" => true]);
+                echo json_encode(["success" => true, "username" => $username_result, "UIN" => $uin_result]);
             } else {
                 echo json_encode(["success" => false, "message" => "Invalid username or password."]);
             }
