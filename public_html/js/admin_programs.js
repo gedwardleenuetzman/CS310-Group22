@@ -73,7 +73,22 @@ document.addEventListener("DOMContentLoaded", function() {
         var deletefrfr = document.createElement('button');
         deletefrfr.innerText = 'Delete For Real';
         deletefrfr.addEventListener('click', function() {
-          // Delete frfr
+          fetch(`/../php/delete_program_frfr.php?id=${program.Program_Num}`, {
+            method: 'DELETE', // Use the DELETE method for deleting records
+          })
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error(`HTTP error! Status: ${response.status}`);
+              }
+              return response.json(); // Assuming your PHP script returns JSON
+          })
+          .then(data => {
+              console.log(data); // Handle the response data as needed
+              location.reload();
+          })
+          .catch(error => {
+              console.error('Error:', error);
+          });
         });
         cell5.appendChild(deletefrfr);
 
