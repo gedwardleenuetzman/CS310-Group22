@@ -3,14 +3,14 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(response => response.json())
     .then(events => {
         var eventsTable = document.getElementById('usersTable');
-        users.forEach(user => {
+        events.forEach(user => {
             var row = eventsTable.insertRow();
             row.innerHTML = `
-                <td>${user.Event_Type}</td>
-                <td>${user.Location}</td>
-                <td>${user.Start_Date}</td>
-                <td>${user.Start_Time}</td>
-                <td>${user.Event_ID}</td>
+                <td>${event.Event_Type}</td>
+                <td>${event.Location}</td>
+                <td>${event.Start_Date}</td>
+                <td>${event.Start_Time}</td>
+                <td>${event.Event_ID}</td>
                 <td>
                     <button class="btn btn-primary btn-sm">Modify</button>
                     <button class="btn btn-warning btn-sm">Soft Delete</button>

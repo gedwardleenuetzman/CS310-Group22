@@ -1,4 +1,10 @@
 <?php
+// Start a new session
+session_start();
+
+// Set header to return JSON content
+header('Content-Type: application/json');
+
 require_once './database_connection.php';
 
 // SQL query to fetch all users
