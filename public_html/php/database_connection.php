@@ -5,15 +5,12 @@ $username = "id21627112_cs310_22";
 $password = "Group22@TAMU";
 $dbname = "id21627112_project_db";
 
-// Create and return the database connection
-function getDbConnection() {
-    $conn = new mysqli($GLOBALS['servername'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['dbname']);
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    return $conn;
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
+
 ?>
