@@ -1,8 +1,11 @@
 <?php
-require_once './database_connection.php';
+// Start a new session
+session_start();
 
-// Get database connection
-$conn = getDbConnection();
+// Set header to return JSON content
+header('Content-Type: application/json');
+
+require_once './database_connection.php';
 
 // SQL query to fetch all users
 $sql = "SELECT First_Name, M_Initial, Last_Name, Username, Email, Discord_Name FROM Users";
