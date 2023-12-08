@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Documents</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Documents</title>
+    </head>
+    <body>
+        <h1>My Documents</h1>
+        <div id="documents"></div>
+        <h1>New Document</h1>
+        <form id="documentForm" action="../php/insert_student_document.php" method="post">
+            <label for="prog_name">Program Name:</label>
+            <input type="text" id="prog_name" name="prog_name" required>
+            
+            <label for="link">Link:</label>
+            <input type="text" id="link" name="link" required>
+            
+            <label for="doc_type">Document Type:</label>
+            <input type="text" id="doc_type" name="doc_type" required>
+            
+            <button type="submit">Submit</button>
+        </form>
+        <script src="../js/student_documents.js"></script>
+    </body>
 </html>
