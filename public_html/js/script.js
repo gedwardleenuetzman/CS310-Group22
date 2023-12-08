@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.success) {
                 // Store username in sessionStorage and redirect
                 sessionStorage.setItem('username', username);
-                window.location.href = './student_landing.html';
+                window.location.href = '../student/student_landing.html';
             } else {
                 // If login failed, display the error message
                 alert(data.message);
