@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch('../php/fetch_admin_events.php') // PHP script that returns user data from the database
     .then(response => response.json())
     .then(events => {
-        var eventsTable = document.getElementById('usersTable');
-        events.forEach(user => {
+        var eventsTable = document.getElementById('eventsTable');
+        events.forEach(event => {
             var row = eventsTable.insertRow();
             row.innerHTML = `
                 <td>${event.Event_Type}</td>
