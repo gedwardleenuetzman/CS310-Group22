@@ -23,15 +23,15 @@ if (isset($_GET['uin'])) {
       Doc_Num,
       Link,
       Doc_Type,
-      programs.Name AS Program_Name
+      Programs.Name AS Program_Name
     FROM
-      documentation
+      Document
     JOIN
-      applications ON documentation.App_Num = applications.App_Num
+      Applications ON Document.App_Num = Applications.App_Num
     JOIN
-      programs ON applications.Program_Num = programs.Program_Num
+      Programs ON Applications.Program_Num = Programs.Program_Num
     WHERE
-      applications.UIN = '$uin';
+      Applications.UIN = '$uin';
   ";
   
   $result = $conn->query($sql);
