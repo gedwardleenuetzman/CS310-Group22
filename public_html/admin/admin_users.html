@@ -9,8 +9,7 @@
     />
   </head>
   <body>
-    <!-- Include the navbar component -->
-
+    <div id="navbar-placeholder"></div>
     <div class="container mt-5">
       <div class="row mb-3">
         <div class="col">
@@ -46,6 +45,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="../js/admin_users_script.js"></script>
-    <!-- Your custom JavaScript -->
+    <script>
+      fetch("../components/admin_navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
+        });
+    </script>
   </body>
 </html>
