@@ -25,7 +25,24 @@ document.addEventListener("DOMContentLoaded", function() {
         var editButton = document.createElement('button');
         editButton.innerText = 'Edit';
         editButton.addEventListener('click', function() {
-          // Edit stuff
+          let newName = prompt('Enter new name:', program.Name);
+          let newDescription = prompt('Enter new description:', program.Description);
+          if (newName == null || newName == '' || newDescription == null || newDescription == '') return;
+          
+          fetch(`/update_program.php?id=${program.Program_Num}&name=${newName}&description=${newDescription}`, {
+            method: 'PUT', // Use the PUT method for updating records
+          })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+          })
+          .then(data => {
+            location.reload();
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
         });
         cell3.appendChild(editButton);
 
@@ -45,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
           .then(data => {
               console.log(data); // Handle the response data as needed
               location.reload();
-            })
+          })
           .catch(error => {
               console.error('Error:', error);
           });
