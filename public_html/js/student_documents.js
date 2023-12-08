@@ -52,8 +52,24 @@ document.addEventListener("DOMContentLoaded", function() {
           var deleteButton = document.createElement('button');
           deleteButton.textContent = 'Delete';
           deleteButton.addEventListener('click', function() {
-            // Handle delete logic here
             console.log('Delete clicked for Doc_Num:', doc.Doc_Num);
+
+            // Delete the document from the database
+            fetch(`/../php/delete_student_documents.php?uin=${studentUIN}&id=${doc.Doc_Num}`, {
+              method: 'DELETE', // Use the DELETE method for deleting records
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json(); // Assuming your PHP script returns JSON
+            })
+            .then(data => {
+                console.log(data); // Handle the response data as needed
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
           });
           deleteCell.appendChild(deleteButton);
         });
