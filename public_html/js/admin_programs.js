@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       // Create table header row
       var headerRow = table.insertRow(0);
-      headerRow.innerHTML = '<th>Name</th><th>Description</th><th>Edit</th><th>Delete</th>';
+      headerRow.innerHTML = '<th>Name</th><th>Description</th><th>Edit</th><th>Delete</th><th>Report</th>';
 
       // Populate the table with program data
       data.forEach(program => {
@@ -36,6 +36,14 @@ document.addEventListener("DOMContentLoaded", function() {
           // Delete stuff
         });
         cell4.appendChild(deleteButton);
+
+        var cell5 = row.insertCell(4);
+        var reportButton = document.createElement('button');
+        reportButton.innerText = 'View Report';
+        reportButton.addEventListener('click', function() {
+          // Redirect to report page
+        });
+        cell5.appendChild(reportButton);
       });
 
       // Append the table to the programDiv
