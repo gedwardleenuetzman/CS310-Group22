@@ -50,7 +50,7 @@ body {
     height: 100px;
     font-size: 20px;
     margin: 10px;
-    background-color: maroon;
+    background-color: rgb(32, 101, 251);
     color: white;
     border: none;
     border-radius: 5px; 
@@ -59,5 +59,11 @@ body {
 }
 
 .button:hover {
-    background-color: darkred;
+    background-color: rgb(67, 125, 249);
 }
+
+.deactivate-btn {
+    background-color: red;
+    color: white;
+}
+
