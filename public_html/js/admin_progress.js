@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     <td>${certEnrollment.Training_Status}</td>
                     <td>${certEnrollment.Program_Num}</td>
                     <td>${certEnrollment.Semester}</td>
-                    <td>${certEnrollment.YEAR}</td>
+                    <td>${certEnrollment.Year}</td>
                 `;
             });
         })
