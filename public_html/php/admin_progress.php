@@ -7,15 +7,6 @@ header('Content-Type: application/json');
 
 require_once './database_connection.php';
 
-<?php
-// Start a new session
-session_start();
-
-// Set header to return JSON content
-header('Content-Type: application/json');
-
-require_once './database_connection.php';
-
 // Function to fetch data based on the entity
 function fetchData($entity) {
     global $conn;
