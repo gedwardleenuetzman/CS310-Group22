@@ -43,15 +43,17 @@ function fetchProfileData() {
     .then(response => response.json())
     .then(data => {
         if(data.success) {
-            // Extracting data from response
+            const profileTable = document.getElementById('profileTable');
             const userData = data.Users;
             const studentData = data.College_Student;
 
-            // Displaying the data
-            document.getElementById('firstName').textContent = userData.First_Name;
-            document.getElementById('lastName').textContent = userData.Last_Name;
-            document.getElementById('grade').textContent = studentData.Grade;
-            document.getElementById('major').textContent = studentData.Major;
+            var row = profileTable.insertRow();
+            row.innerHTML = `
+                <td>${userData.First_Name}</td>
+                <td>${userData.Last_Name}</td>
+                <td>${studentData.Grade}</td>
+                <td>${studentData.Major}</td>
+            `;
         } else {
             console.error('Failed to fetch profile data');
         }
