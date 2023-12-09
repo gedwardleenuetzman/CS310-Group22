@@ -89,7 +89,7 @@ function handleFormSubmit(event) {
     .then(response => response.json())
     .then(data => {
         console.log('Success:', data);
-        // Handle success - e.g., close modal, show a success message, refresh user list...
+        // Handle success - e.g., close modal, refresh page
         $('#editUserModal').modal('hide');
         location.reload();
     })
@@ -111,7 +111,7 @@ function softDeleteUser(userId) {
         .then(response => response.json())
         .then(data => {
             console.log('Success:', data);
-            // Optionally, update the UI to reflect the change
+            // Handle success - reload the page
             location.reload();
 
         })
@@ -133,7 +133,7 @@ function hardDeleteUser(userId) {
         .then(response => response.json())
         .then(data => {
             console.log('Success:', data);
-            // Optionally, update the UI to reflect the change
+            // Handle success - reload the page
             location.reload();
 
         })

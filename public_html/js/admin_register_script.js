@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(data => {
             console.log(data); // Log the response data
-            // You can add code here to update the UI based on the response
+            // Handle success - redirect the user
             alert(data.message)
             window.location.href = './admin_login_page.html'
         })
