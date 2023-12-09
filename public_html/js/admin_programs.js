@@ -85,14 +85,6 @@ document.addEventListener("DOMContentLoaded", function() {
           });
         });
         cell5.appendChild(deletefrfr);
-
-        var cell6 = row.insertCell(5);
-        var reportButton = document.createElement('button');
-        reportButton.innerText = 'View Report';
-        reportButton.addEventListener('click', function() {
-          // Redirect to report page
-        });
-        cell6.appendChild(reportButton);
       });
 
       // Append the table to the programDiv
