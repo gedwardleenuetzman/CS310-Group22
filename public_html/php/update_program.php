@@ -18,7 +18,7 @@ if (isset($_GET['id'], $_GET['name'], $_GET['description'])) {
       die("Connection failed: " . $conn->connect_error);
   }
 
-  $sql = "UPDATE programs SET Name = '$name', Description = '$description' WHERE Program_Num = '$id';";
+  $sql = "UPDATE Programs SET Name = '$name', Description = '$description' WHERE Program_Num = '$id';";
   
   $result = $conn->query($sql);
   

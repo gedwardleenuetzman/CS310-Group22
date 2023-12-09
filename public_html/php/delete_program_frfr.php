@@ -17,7 +17,7 @@ if (isset($_GET['id'])) {
   }
 
   // Programs
-  $sql = "DELETE FROM programs WHERE Program_Num = '$id';";
+  $sql = "DELETE FROM Programs WHERE Program_Num = '$id';";
   $result = $conn->query($sql);
   if ($result === true) {
     echo "Delete operation successful.";
@@ -26,7 +26,7 @@ if (isset($_GET['id'])) {
   }
 
   // Track
-  $sql = "DELETE FROM track WHERE Program = '$id';";
+  $sql = "DELETE FROM Track WHERE Program = '$id';";
   $result = $conn->query($sql);
   if ($result === true) {
     echo "Delete operation successful.";
@@ -35,14 +35,14 @@ if (isset($_GET['id'])) {
   }
 
   // Events
-  $sql = "DELETE FROM events WHERE Program_Num = '$id';";
+  $sql = "DELETE FROM Events WHERE Program_Num = '$id';";
   $result = $conn->query($sql);
   if ($result === true) {
     echo "Delete operation successful.";
   } else {
       echo "Error deleting record: " . $conn->error;
   }
-  $sql = "DELETE FROM event_tracking WHERE Event_ID NOT IN (SELECT Event_ID FROM events);";
+  $sql = "DELETE FROM Event_Tracking WHERE Event_ID NOT IN (SELECT Event_ID FROM events);";
   $result = $conn->query($sql);
   if ($result === true) {
     echo "Delete operation successful.";
@@ -51,14 +51,14 @@ if (isset($_GET['id'])) {
   }
 
   // Applications
-  $sql = "DELETE FROM applications WHERE Program_Num = '$id';";
+  $sql = "DELETE FROM Applications WHERE Program_Num = '$id';";
   $result = $conn->query($sql);
   if ($result === true) {
     echo "Delete operation successful.";
   } else {
       echo "Error deleting record: " . $conn->error;
   }
-  $sql = "DELETE FROM documentation WHERE App_Num NOT IN (SELECT App_Num FROM applications);";
+  $sql = "DELETE FROM Documentation WHERE App_Num NOT IN (SELECT App_Num FROM Applications);";
   $result = $conn->query($sql);
   if ($result === true) {
     echo "Delete operation successful.";
@@ -67,7 +67,7 @@ if (isset($_GET['id'])) {
   }
 
   // Certificates
-  $sql = "DELETE FROM cert_enrollment WHERE Program_Num = '$id';";
+  $sql = "DELETE FROM Cert_Enrollment WHERE Program_Num = '$id';";
   $result = $conn->query($sql);
   if ($result === true) {
     echo "Delete operation successful.";

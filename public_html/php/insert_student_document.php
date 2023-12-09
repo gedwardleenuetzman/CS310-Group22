@@ -21,8 +21,8 @@ if (isset($_POST['uin'], $_POST['prog_name'], $_POST['link'], $_POST['doc_type']
     die("Connection failed: " . $conn->connect_error);
   }
 
-  $stmt = $conn->prepare("SELECT app.App_Num FROM applications app
-                          INNER JOIN programs prog ON app.Program_Num = prog.Program_Num
+  $stmt = $conn->prepare("SELECT app.App_Num FROM Applications app
+                          INNER JOIN Programs prog ON app.Program_Num = prog.Program_Num
                           WHERE app.UIN = ? AND prog.Name = ?");
   $stmt->bind_param("is", $uin, $programName);
   $stmt->execute();

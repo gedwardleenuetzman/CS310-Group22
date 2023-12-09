@@ -17,7 +17,7 @@ if (isset($_GET['id'], $_GET['link'])) {
       die("Connection failed: " . $conn->connect_error);
   }
 
-  $sql = "UPDATE documentation SET Link = '$link' WHERE Doc_Num = '$id';";
+  $sql = "UPDATE Documentation SET Link = '$link' WHERE Doc_Num = '$id';";
   
   $result = $conn->query($sql);
   

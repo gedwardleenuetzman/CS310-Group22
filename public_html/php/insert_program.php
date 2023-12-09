@@ -17,7 +17,7 @@ if (isset($_POST['name'], $_POST['description'])) {
     die("Connection failed: " . $conn->connect_error);
   }
 
-  $sql = "INSERT INTO programs (Name, Description) VALUES ('$name', '$description')";
+  $sql = "INSERT INTO Programs (Name, Description) VALUES ('$name', '$description')";
   
   $result = $conn->query($sql);
   
