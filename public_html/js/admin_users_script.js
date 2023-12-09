@@ -41,6 +41,14 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
 
+        // Add event listeners for Hard Delete buttons
+        document.querySelectorAll('btn-danger').forEach(button => {
+            button.addEventListener('click'), function(event) {
+                var userId = this.previousElementSibling.getAttribute('data-uid');
+                hardDeleteUser(userId);
+            }
+        });
+
     })
     .catch(error => {
         console.error('Error fetching users:', error);
@@ -94,6 +102,28 @@ function handleFormSubmit(event) {
 function softDeleteUser(userId) {
     if (confirm('Are you sure you want to soft delete this user?')) {
         fetch('../php/admin_user_soft_delete.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'UIN=' + userId
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            // Optionally, update the UI to reflect the change
+            location.reload();
+
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+}
+
+function hardDeleteUser(userId) {
+    if (confirm('Are you sure you want to hard delete this user?')) {
+        fetch('../php/admin_user_hard_delete.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
