@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var formData = new URLSearchParams();
         formData.append('inputUsername', username);
         formData.append('inputPassword', password);
+        formData.append('isAdmin', 'true');
 
         // AJAX request to backend        
         fetch('../php/login.php', {
