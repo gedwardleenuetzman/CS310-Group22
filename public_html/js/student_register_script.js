@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Create FormData object from the form
         var formData = new FormData(this);
+        var storedUIN = sessionStorage.getItem("uin");
+
+        if (storedUIN) {
+            formData.append('existingUIN', storedUIN);
+        }
 
         // Send the data using fetch to the student_register.php
         fetch('../php/student_register.php', {
