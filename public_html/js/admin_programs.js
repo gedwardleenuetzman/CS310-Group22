@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
               if (!response.ok) {
                   throw new Error(`HTTP error! Status: ${response.status}`);
               }
-              return response.json(); // Assuming your PHP script returns JSON
+              return response.json(); 
           })
           .then(data => {
               console.log(data); // Handle the response data as needed
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
               if (!response.ok) {
                   throw new Error(`HTTP error! Status: ${response.status}`);
               }
-              return response.json(); // Assuming your PHP script returns JSON
+              return response.json(); 
           })
           .then(data => {
               console.log(data); // Handle the response data as needed

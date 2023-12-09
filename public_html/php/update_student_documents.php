@@ -1,5 +1,4 @@
 <?php
-// Replace with your actual database credentials
 $servername = "localhost";
 $username = "id21627112_cs310_22";
 $password = "Group22@TAMU";
