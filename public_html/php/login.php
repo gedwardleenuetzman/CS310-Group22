@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($inputPassword === $password_result) {
                 if (isset($_POST['isAdmin']) && $_POST['isAdmin'] === 'true' && $can_access_result == 0) {
                     echo json_encode(["success" => false, "message" => "Access denied for admin."]);
-                else {
+                } else {
                     $_SESSION["loggedin"] = true;
                     $_SESSION["username"] = $username_result;
                     $_SESSION["UIN"] = $uin_result;
