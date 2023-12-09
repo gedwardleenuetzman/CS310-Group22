@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phoneNumber = sanitizeInput($_POST['registerPhoneNumber']);
     $userType = "Student";
     $studentType = "Program Member";
-    $canAccess = 0
+    $canAccess = 0;
 
     $existingUIN = isset($_POST['existingUIN']) ? sanitizeInput($_POST['existingUIN']) : null;
 
