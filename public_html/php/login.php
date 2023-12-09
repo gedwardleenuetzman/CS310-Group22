@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     } else {
         // Prepare SQL statement to prevent SQL injection
-        $stmt = $conn->prepare("SELECT Username, Password, UIN FROM Users WHERE Username = ?");
+        $stmt = $conn->prepare("SELECT Username, Password, UIN, Can_Access FROM Users WHERE Username = ?");
         $stmt->bind_param("s", $inputUsername);
 
         // Execute the statement
@@ -36,11 +36,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Check if the provided password matches
             if ($inputPassword === $password_result) {
-                $_SESSION["loggedin"] = true;
-                $_SESSION["username"] = $username_result;
-                $_SESSION["UIN"] = $uin_result;
-
-                echo json_encode(["success" => true, "username" => $username_result, "UIN" => $uin_result]);
+                if (isset($_POST['isAdmin']) && $_POST['isAdmin'] === 'true' && $can_access_result == 0) {
+                    echo json_encode(["success" => false, "message" => "Access denied for admin."]);
+                else {
+                    $_SESSION["loggedin"] = true;
+                    $_SESSION["username"] = $username_result;
+                    $_SESSION["UIN"] = $uin_result;
+    
+                    echo json_encode(["success" => true, "username" => $username_result, "UIN" => $uin_result]);    
+                }
             } else {
                 echo json_encode(["success" => false, "message" => "Invalid username or password."]);
             }
