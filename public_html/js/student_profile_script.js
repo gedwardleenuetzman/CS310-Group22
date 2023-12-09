@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function fetchProfileData() {
     // Assuming the session storage has the UIN
-    const UIN = sessionStorage.getItem('UIN');
+    const UIN = sessionStorage.getItem('uin');
 
     // Call PHP script to get profile data
     fetch(`../php/access_student_profile.php?UIN=${UIN}`)
