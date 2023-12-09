@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAMCC Student Progress - Class Enrollment</title>
+    <title>TAMCC Student Progress</title>
     <!-- Include Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -12,10 +12,39 @@
 </head>
 <body>
 
-<h2>Student Progress - Class Enrollment</h2>
+<h1>Student Progress</h1>
 
-<!-- Table for admins to update and delete existing class enrollments -->
-<h3>Update and Delete Class Enrollments</h3>
+<h2>Classes</h2>
+
+<!-- Table for students to view existing class enrollments -->
+<body>
+    <div id="navbar-placeholder"></div>
+    <div class="container mt-5">
+      <div class="row mb-3">
+        <div class="col">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Class ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="enrollmentsTable">
+              <!-- User data will be inserted here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+<h3>Update and Delete Classes</h3>
 <div class="container mt-5">
     <div class="row mb-3">
       <div class="col">
@@ -26,78 +55,273 @@
         <table class="table">
           <thead>
             <tr>
-                <th>CE_Num</th>
-                <th>UIN</th>
-                <th>Class_ID</th>
-                <th>Status</th>
-                <th>Semester</th>
-                <th>Year</th>
+              <th>Class ID</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Type</th>
+              <th>Action</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><input type="text" name="status" value="John Doe"></td>
+                <td><input type="text" name="classID" value="101"></td>
+                <td><input type="text" name="status" value="Enrolled"></td>
+                <td><form method="post" action="student_progress.php">
+                    <input type="hidden" name="update" value="1">
+                    <button type="submit" class="btn btn-primary" onclick="updateClassEnrollment()">Update</button>
+                </form>
+                <form method="post" action="student_progress.php">
+                    <input type="hidden" name="delete" value="1">
+                    <button type="submit" class="btn btn-primary" onclick="deleteClassEnrollment()">Delete</button>
+                </form></td>
+          </thead>
+        </table>
+    </div>
+  </div>
+</div>
+
+<h3>Add Classes</h3>
+<div class="container mt-5">
+    <div class="row mb-3">
+      <div class="col">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Class ID</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Type</th>
+              <th>Action</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><input type="text" name="status" value="John Doe"></td>
+                <td><input type="text" name="classID" value="101"></td>
+                <td><input type="text" name="status" value="Enrolled"></td>
+                <td><form method="post" action="student_progress.php">
+                    <input type="hidden" name="update" value="1">
+                    <button type="submit" class="btn btn-primary" onclick="insertClassEnrollment()">Insert</button>
+                </form>
+          </thead>
+        </table>
+    </div>
+  </div>
+</div>
+
+<h2>Intern Apps</h2>
+
+<!-- Table for students to view existing class enrollments -->
+<body>
+    <div id="navbar-placeholder"></div>
+    <div class="container mt-5">
+      <div class="row mb-3">
+        <div class="col">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Intern ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>is Gov?</th>
                 <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="internAppsTable">
+              <!-- Intern app data will be inserted here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+<h3>Update and Delete Intern Apps</h3>
+<div class="container mt-5">
+    <div class="row mb-3">
+      <div class="col">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Intern ID</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>is Gov?</th>
+              <th>Action</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><input type="text" name="status" value="John Doe"></td>
+                <td><input type="text" name="classID" value="101"></td>
+                <td><input type="text" name="status" value="Enrolled"></td>
+                <td><form method="post" action="student_progress.php">
+                    <input type="hidden" name="update" value="1">
+                    <button type="submit" class="btn btn-primary" onclick="updateClassEnrollment()">Update</button>
+                </form>
+                <form method="post" action="student_progress.php">
+                    <input type="hidden" name="delete" value="1">
+                    <button type="submit" class="btn btn-primary" onclick="deleteClassEnrollment()">Delete</button>
+                </form></td>
+          </thead>
+        </table>
+    </div>
+  </div>
+</div>
+
+<h3>Add Classes</h3>
+<div class="container mt-5">
+    <div class="row mb-3">
+      <div class="col">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Intern ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>is Gov?</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><input type="text" name="status" value="John Doe"></td>
+                <td><input type="text" name="classID" value="101"></td>
+                <td><input type="text" name="status" value="Enrolled"></td>
+                <td><form method="post" action="student_progress.php">
+                    <input type="hidden" name="update" value="1">
+                    <button type="submit" class="btn btn-primary" onclick="insertClassEnrollment()">Insert</button>
+                </form>
+          </thead>
+        </table>
+    </div>
+  </div>
+</div>
+
+<h2>Certifications</h2>
+
+<!-- Table for students to update and delete existing cert enrollments -->
+<body>
+    <div id="navbar-placeholder"></div>
+    <div class="container mt-5">
+      <div class="row mb-3">
+        <div class="col">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Cert ID</th>
+                <th>Level</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="certEnrollmentsTable">
+              <!-- Cert Enrollment data will be inserted here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+<h3>Update and Delete Certifications</h3>
+<div class="container mt-5">
+    <div class="row mb-3">
+      <div class="col">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Cert ID</th>
+              <th>Level</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Action</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><input type="text" name="UIN" value="101"></td>
+                <td><input type="text" name="classID" value="101"></td>
+                <td><input type="text" name="status" value="Enrolled"></td>
+                <td><form method="post" action="student_progress.php">
+                    <input type="hidden" name="update" value="1">
+                    <button type="submit" class="btn btn-primary" onclick="updateClassEnrollment()">Update</button>
+                </form>
+                <form method="post" action="student_progress.php">
+                    <input type="hidden" name="delete" value="1">
+                    <button type="submit" class="btn btn-primary" onclick="deleteClassEnrollment()">Delete</button>
+                </form></td>
+          </thead>
+        </table>
+    </div>
+  </div>
+</div>
+
+<!-- Form for students to add new class enrollments -->
+<h3>Add Certifications</h3>
+<div class="container mt-5">
+    <div class="row mb-3">
+      <div class="col">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Cert ID</th>
+              <th>Level</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Action</th>
             </tr>
             <tr>
                 <td>1</td>
                 <td>123456789</td>
                 <td><input type="text" name="classID" value="101"></td>
                 <td><input type="text" name="status" value="Enrolled"></td>
-                <td><input type="text" name="semester" value="Fall"></td>
-                <td><input type="number" name="year" value="2023"></td>
-                <td><form method="post" action="admin_progress.php">
+                <td><form method="post" action="student_progress.php">
                     <input type="hidden" name="update" value="1">
-                    <button type="submit" class="btn btn-primary" onclick="updateClassEnrollment()">Update</button>
+                    <button type="submit" class="btn btn-primary" onclick="insertClassEnrollment()">Insert</button>
                 </form>
-                <form method="post" action="admin_progress.php">
-                    <input type="hidden" name="delete" value="1">
-                    <button type="submit" class="btn btn-primary" onclick="deleteClassEnrollment()">Delete</button>
-                </form></td>
           </thead>
-
         </table>
-      </div>
     </div>
   </div>
+</div>
 
-<!-- Form for students to add new class enrollments -->
-<form method="post" action="admin_progress.php">
-    <h3>Add New Class Enrollment</h3>
 
-    <div class="container mt-5">
-        <div class="row mb-3">
-          <div class="col">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <table class="table">
-              <thead>
-                <tr>
-                    <th>CE_Num</th>
-                    <th>UIN</th>
-                    <th>Class_ID</th>
-                    <th>Status</th>
-                    <th>Semester</th>
-                    <th>Year</th>
-                    <th>Action</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>*PULL FROM DATABASE*</td>
-                    <td><input type="text" name="classID" value="101"></td>
-                    <td><input type="text" name="status" value="Enrolled"></td>
-                    <td><input type="text" name="semester" value="Fall"></td>
-                    <td><input type="number" name="year" value="2023"></td>
-                    <td><form method="post" action="admin_progress.php">
-                        <input type="hidden" name="insert" value="1">
-                        <button type="submit" class="btn btn-primary" onclick="insertClassEnrollment()">Insert</button>
-                    </form>
-                    </td>
-              </thead>
-</form>
     <!-- Include Bootstrap JS and FontAwesome for icons -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="../js/admin_users_script.js"></script>
-    <!-- Your custom JavaScript -->
-</body>
+    <script src="../js/student_progress.js"></script>
+    <script>
+      fetch("../components/admin_navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
+        });
+    </script>
+  </body>
 </html>

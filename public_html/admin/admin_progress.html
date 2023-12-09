@@ -191,6 +191,40 @@
   </div>
 </div>
 
+<h3>Add Intern Apps</h3>
+<div class="container mt-5">
+    <div class="row mb-3">
+      <div class="col">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <table class="table">
+          <thead>
+            <tr>
+                <th>IA Num</th>
+                <th>UIN</th>
+                <th>Intern ID</th>
+                <th>Status</th>
+                <th>Year</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>123456789</td>
+                <td><input type="text" name="classID" value="101"></td>
+                <td><input type="text" name="status" value="Enrolled"></td>
+                <td><input type="text" name="semester" value="Fall"></td>
+                <td><form method="post" action="admin_progress.php">
+                    <input type="hidden" name="update" value="1">
+                    <button type="submit" class="btn btn-primary" onclick="insertClassEnrollment()">Insert</button>
+                </form>
+          </thead>
+        </table>
+    </div>
+  </div>
+</div>
+
 <h2>Cert Enrollment</h2>
 
 <!-- Table for admins to update and delete existing cert enrollments -->
@@ -251,7 +285,10 @@
                 <td><input type="text" name="UIN" value="101"></td>
                 <td><input type="text" name="classID" value="101"></td>
                 <td><input type="text" name="status" value="Enrolled"></td>
+                <td><input type="text" name="status" value="Enrolled"></td>
+                <td><input type="text" name="UIN" value="101"></td>
                 <td><input type="text" name="semester" value="Fall"></td>
+                <td><input type="number" name="year" value="2023"></td>
                 <td><form method="post" action="admin_progress.php">
                     <input type="hidden" name="update" value="1">
                     <button type="submit" class="btn btn-primary" onclick="updateClassEnrollment()">Update</button>
@@ -293,6 +330,8 @@
                 <td>123456789</td>
                 <td><input type="text" name="classID" value="101"></td>
                 <td><input type="text" name="status" value="Enrolled"></td>
+                <td><input type="text" name="status" value="Enrolled"></td>
+                <td><input type="text" name="UIN" value="101"></td>
                 <td><input type="text" name="semester" value="Fall"></td>
                 <td><input type="number" name="year" value="2023"></td>
                 <td><form method="post" action="admin_progress.php">
