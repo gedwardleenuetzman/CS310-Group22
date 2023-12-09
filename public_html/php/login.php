@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     } else {
         // Prepare SQL statement to prevent SQL injection
-        $stmt = $conn->prepare("SELECT Username, Password FROM Users WHERE Username = ?");
+        $stmt = $conn->prepare("SELECT Username, Password, UIN FROM Users WHERE Username = ?");
         $stmt->bind_param("s", $inputUsername);
 
         // Execute the statement
@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt->num_rows > 0) {
             // Bind the result to variables
-            $stmt->bind_result($username_result, $password_result);
+            $stmt->bind_result($username_result, $password_result, $uin_result);
             $stmt->fetch();
 
             // Check if the provided password matches
