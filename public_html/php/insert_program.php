@@ -5,7 +5,7 @@ $username = "id21627112_cs310_22";
 $password = "Group22@TAMU";
 $dbname = "id21627112_project_db";
 
-if (isset($$_POST['name'], $_POST['description'])) {
+if (isset($_POST['name'], $_POST['description'])) {
   $name = $_POST['name'];
   $description = $_POST['description'];
 
