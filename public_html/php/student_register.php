@@ -44,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phoneNumber = sanitizeInput($_POST['registerPhoneNumber']);
     $userType = "Student";
     $studentType = "Program Member";
+    $canAccess = 0
 
     $existingUIN = isset($_POST['existingUIN']) ? sanitizeInput($_POST['existingUIN']) : null;
 
@@ -65,8 +66,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         
         // First Insert Statement
-        $stmt1 = $conn->prepare("INSERT INTO Users (UIN, First_Name, M_Initial, Last_Name, Username, Password, User_Type, Email, Discord_Name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt1->bind_param("issssssss", $uin, $firstName, $middleInitial, $lastName, $username, $password, $userType, $email, $discordUsername);
+        $stmt1 = $conn->prepare("INSERT INTO Users (UIN, First_Name, M_Initial, Last_Name, Username, Password, User_Type, Email, Discord_Name, Can_Access) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt1->bind_param("issssssssb", $uin, $firstName, $middleInitial, $lastName, $username, $password, $userType, $email, $discordUsername, $canAccess);
         $stmt1->execute();
         $stmt1->close();
 
