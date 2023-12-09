@@ -1,5 +1,37 @@
 document.addEventListener("DOMContentLoaded", function() {
     fetchProfileData();
+
+    document.getElementById('deactivateBtn').addEventListener('click', function() {
+        const UIN = sessionStorage.getItem('uin');
+        if (!UIN) {
+            alert('No UIN found in session storage.');
+            return;
+        }
+    
+        if (confirm('Are you sure you want to deactivate your account?')) {
+            fetch('../php/deactivate_student_account.php', { 
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ UIN: UIN })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    alert('Account successfully deactivated.');
+                    window.location.href = "../index.html";
+                } else {
+                    alert('Failed to deactivate the account.');
+                }
+            })
+            .catch(error => {
+                console.error('Error: ', error);
+                alert('An error occurred.');
+            });
+        }
+    });
+
 });
 
 function fetchProfileData() {
