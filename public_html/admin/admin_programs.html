@@ -7,18 +7,27 @@
     <link rel="stylesheet" href="../../style.css" />
   </head>
   <body>
+    <div id="navbar-placeholder"></div>
+
     <h1>All Programs</h1>
     <div id="programs"></div>
     <h1>Add Program</h1>
     <form action="/../php/insert_program.php" method="post">
       <label for="name">Program Name:</label>
-      <input type="text" id="name" name="name" required>
-  
+      <input type="text" id="name" name="name" required />
+
       <label for="description">Program Description:</label>
       <textarea id="description" name="description" required></textarea>
-  
+
       <button type="submit">Insert Program</button>
     </form>
     <script src="../js/admin_programs.js"></script>
   </body>
+  <script>
+    fetch("../components/admin_navbar.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+      });
+  </script>
 </html>

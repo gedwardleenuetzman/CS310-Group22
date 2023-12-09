@@ -358,5 +358,13 @@
           document.getElementById("navbar-placeholder").innerHTML = data;
         });
     </script>
+    <script>
+      fetch("../components/admin_navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
+        });
+    </script>
+    
   </body>
 </html>
