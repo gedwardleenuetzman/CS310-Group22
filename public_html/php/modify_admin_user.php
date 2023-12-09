@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "UPDATE Users SET First_Name = ?, M_Initial = ?, Last_Name = ?, Username = ?, Email = ?, Discord_Name = ?, Can_Access = ? WHERE UIN = ?";
     
     if($stmt = $conn->prepare($sql)) {
-        $stmt->bind_param("ssssssbi", $firstName, $middleInitial, $lastName, $username, $email, $discordName, $canAccess, $uin);
+        $stmt->bind_param("ssssssii", $firstName, $middleInitial, $lastName, $username, $email, $discordName, $canAccess, $uin);
         $stmt->execute();
 
         if($stmt->affected_rows > 0) {
