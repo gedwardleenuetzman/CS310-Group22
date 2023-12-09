@@ -9,7 +9,7 @@ header('Content-Type: application/json');
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['UIN'])) {
     $uin = $_POST['UIN'];
 
-    // Prepare SQL query to update the Can_Access field
+    // Prepare SQL query
     $sql = "DELETE from Users WHERE UIN = ?";
     
     if($stmt = $conn->prepare($sql)) {

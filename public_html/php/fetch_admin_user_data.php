@@ -8,6 +8,7 @@ require_once './database_connection.php';
 if(isset($_GET['UIN'])) {
     $uin = $_GET['UIN'];
 
+    // SQL Statement to find an individual user based on UIN
     $sql = "SELECT UIN, First_Name, M_Initial, Last_Name, Username, Email, Discord_Name, Can_Access FROM Users WHERE UIN = ?";
     if($stmt = $conn->prepare($sql)) {
         $stmt->bind_param("i", $uin);
