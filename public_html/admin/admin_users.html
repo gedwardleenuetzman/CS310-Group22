@@ -26,18 +26,116 @@
           <table class="table">
             <thead>
               <tr>
+                <th>UIN</th>
                 <th>First Name</th>
                 <th>Middle Initial</th>
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>Username</th>
                 <th>Discord Username</th>
+                <th>Can Access</th>
               </tr>
             </thead>
             <tbody id="usersTable">
               <!-- User data will be inserted here -->
             </tbody>
           </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit User Modal -->
+    <div class="modal" id="editUserModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Edit User</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+
+          <!-- Modal Body -->
+          <div class="modal-body">
+            <form id="editUserForm">
+              <input type="hidden" id="editUIN" name="UIN" />
+
+              <div class="form-group">
+                <label for="editFirstName">First Name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editFirstName"
+                  name="First_Name"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="editMiddleInitial">Middle Initial:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editMiddleInitial"
+                  name="M_Initial"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="editLastName">Last Name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editLastName"
+                  name="Last_Name"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="editUsername">Username:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editUsername"
+                  name="Username"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="editEmail">Email:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editEmail"
+                  name="Email"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="editDiscordName">Discord Name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editDiscordName"
+                  name="Discord_Name"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="editCanAccess">Can Access:</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="editCanAccess"
+                  name="Can_Access"
+                  min="0"
+                  max="1"
+                  step="1"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
