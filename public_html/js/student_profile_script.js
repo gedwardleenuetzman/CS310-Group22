@@ -48,10 +48,10 @@ function fetchProfileData() {
             const studentData = data.College_Student;
 
             // Displaying the data
-            document.getElementById('firstName').textContent = userData.first_name;
-            document.getElementById('lastName').textContent = userData.last_name;
-            document.getElementById('grade').textContent = studentData.grade;
-            document.getElementById('major').textContent = studentData.major;
+            document.getElementById('firstName').textContent = userData.First_Name;
+            document.getElementById('lastName').textContent = userData.Last_Name;
+            document.getElementById('grade').textContent = studentData.Grade;
+            document.getElementById('major').textContent = studentData.Major;
         } else {
             console.error('Failed to fetch profile data');
         }

@@ -41,10 +41,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $userType = "Student"
     $studentType = "Program Member"
 
+    $existingUIN = isset($_POST['existingUIN']) ? sanitizeInput($_POST['existingUIN']) : null;
+
     // Start transaction
     $conn->begin_transaction();
 
     try {
+
+        // If existing UIN is provided, delete existing records
+        if ($existingUIN) {
+            $deleteStmt1 = $conn->prepare("DELETE FROM Users WHERE UIN = ?");
+            $deleteStmt1->bind_param("s", $existingUIN);
+            $deleteStmt1->execute();
+            $deleteStmt1->close();
+
+            $deleteStmt2 = $conn->prepare("DELETE FROM College_Student WHERE UIN = ?");
+            $deleteStmt2->bind_param("s", $existingUIN);
+            $deleteStmt2->execute();
+            $deleteStmt2->close();
+        }
+        
         // First Insert Statement
         $stmt1 = $conn->prepare("INSERT INTO Users (UIN, First_Name, M_Initial, Last_Name, Username, Password, User_Type, Email, Discord_Name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt1->bind_param("sssssssss", $uin, $firstName, $middleInitial, $lastName, $username, $password, $userType, $email, $discordUsername);
