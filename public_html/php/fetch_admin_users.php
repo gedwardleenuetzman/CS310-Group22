@@ -8,7 +8,7 @@ header('Content-Type: application/json');
 require_once './database_connection.php';
 
 // SQL query to fetch all users
-$sql = "SELECT First_Name, M_Initial, Last_Name, Username, Email, Discord_Name FROM Users";
+$sql = "SELECT UIN, First_Name, M_Initial, Last_Name, Username, Email, Discord_Name, Can_Access FROM Users";
 
 $result = $conn->query($sql);
 
