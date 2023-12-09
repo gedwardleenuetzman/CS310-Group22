@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt->num_rows > 0) {
             // Bind the result to variables
-            $stmt->bind_result($username_result, $password_result, $uin_result);
+            $stmt->bind_result($username_result, $password_result, $uin_result, $can_access_result);
             $stmt->fetch();
 
             // Check if the provided password matches
