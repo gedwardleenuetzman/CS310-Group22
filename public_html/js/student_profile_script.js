@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
         if (confirm('Are you sure you want to deactivate your account?')) {
             fetch('../php/deactivate_student_account.php', { 
-                method: 'DELETE',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },

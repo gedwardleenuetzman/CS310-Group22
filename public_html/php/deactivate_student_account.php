@@ -8,9 +8,9 @@ header('Content-Type: application/json');
 // Include database connection file (adjust the path as needed)
 require_once './database_connection.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
-    $_DELETE = json_decode(file_get_contents('php://input'), true);
-    $UIN = isset($_DELETE['UIN']) ? $conn->real_escape_string($_DELETE['UIN']) : null;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $_POST = json_decode(file_get_contents('php://input'), true);
+    $UIN = isset($_POST['UIN']) ? $conn->real_escape_string($_POST['UIN']) : null;
 
     if (!$UIN) {
         echo json_encode(['success' => false, 'message' => 'UIN is required']);
