@@ -1,5 +1,5 @@
 // Get student UIN from cache
-var studentUIN = sessionStorage.getItem('studentUIN');
+var studentUIN = sessionStorage.getItem('uin');
 
 document.addEventListener("DOMContentLoaded", function() {
   fetch(`/../php/fetch_student_documents.php?uin=${studentUIN}`)
