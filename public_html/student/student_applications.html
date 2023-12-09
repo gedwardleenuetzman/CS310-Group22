@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../../style.css" />
   </head>
   <body>
+    <div id="navbar-placeholder"></div>
+
     <div class="row">
       <div class="col">
         <table class="table">
@@ -26,4 +28,11 @@
       </div>
     </div>
   </body>
+  <script>
+    fetch("../components/student_navbar.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+      });
+  </script>
 </html>

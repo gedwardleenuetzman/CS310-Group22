@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="../../style.css" />
   </head>
   <body>
+    <div id="navbar-placeholder"></div>
+
     <div class="container mt-5">
       <div class="row">
         <div class="col-md-8">
@@ -47,5 +49,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <!-- Custom Script -->
     <script src="../js/student_profile_script.js"></script>
+    <script>
+      fetch("../components/student_navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
+        });
+    </script>
   </body>
 </html>
