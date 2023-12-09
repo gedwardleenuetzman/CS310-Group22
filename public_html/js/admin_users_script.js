@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 <td>${user.Can_Access}</td>
                 <td>
                     <button class="btn btn-primary btn-sm" data-uid="${user.UIN}">Modify</button>
-                    <button class="btn btn-warning btn-sm">Soft Delete</button>
-                    <button class="btn btn-danger btn-sm">Hard Delete</button>
+                    <button class="btn btn-warning btn-sm" data-uid="${user.UIN}">Soft Delete</button>
+                    <button class="btn btn-danger btn-sm" data-uid="${user.UIN}">Hard Delete</button>
                 </td>
             `;
         });
@@ -32,7 +32,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 modifyUser(userId);
             });
         });
-        
+
+        // Add event listeners for Soft Delete buttons
+        document.querySelectorAll('.btn-warning').forEach(button => {
+            button.addEventListener('click', function(event) {
+                var userId = this.previousElementSibling.getAttribute('data-uid'); // Assuming this is the Modify button with the UIN
+                softDeleteUser(userId);
+            });
+        });
+
     })
     .catch(error => {
         console.error('Error fetching users:', error);
@@ -75,6 +83,7 @@ function handleFormSubmit(event) {
         console.log('Success:', data);
         // Handle success - e.g., close modal, show a success message, refresh user list...
         $('#editUserModal').modal('hide');
+        location.reload();
     })
     .catch(error => {
         console.error('Error:', error);
@@ -82,3 +91,24 @@ function handleFormSubmit(event) {
     });
 }
 
+function softDeleteUser(userId) {
+    if (confirm('Are you sure you want to soft delete this user?')) {
+        fetch('../php/admin_user_soft_delete.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'UIN=' + userId
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            // Optionally, update the UI to reflect the change
+            location.reload();
+
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+}
