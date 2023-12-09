@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // First Insert Statement
         $stmt1 = $conn->prepare("INSERT INTO Users (UIN, First_Name, M_Initial, Last_Name, Username, Password, User_Type, Email, Discord_Name, Can_Access) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt1->bind_param("issssssssb", $uin, $firstName, $middleInitial, $lastName, $username, $password, $userType, $email, $discordUsername, $canAccess);
+        $stmt1->bind_param("issssssssi", $uin, $firstName, $middleInitial, $lastName, $username, $password, $userType, $email, $discordUsername, $canAccess);
         $stmt1->execute();
         $stmt1->close();
 
