@@ -29,9 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
           let newDescription = prompt('Enter new description:', program.Description);
           if (newName == null || newName == '' || newDescription == null || newDescription == '') return;
           
-          fetch(`/update_program.php?id=${program.Program_Num}&name=${newName}&description=${newDescription}`, {
-            method: 'PUT', // Use the PUT method for updating records
-          })
+          fetch(`/update_program.php?id=${program.Program_Num}&name=${newName}&description=${newDescription}`)
           .then(response => {
             if (!response.ok) {
               throw new Error(`HTTP error! Status: ${response.status}`);
@@ -50,9 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var deleteButton = document.createElement('button');
         deleteButton.innerText = 'Delete';
         deleteButton.addEventListener('click', function() {
-          fetch(`/../php/delete_program.php?id=${program.Program_Num}`, {
-            method: 'DELETE', // Use the DELETE method for deleting records
-          })
+          fetch(`/../php/delete_program.php?id=${program.Program_Num}`)
           .then(response => {
               if (!response.ok) {
                   throw new Error(`HTTP error! Status: ${response.status}`);
@@ -73,9 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var deletefrfr = document.createElement('button');
         deletefrfr.innerText = 'Delete For Real';
         deletefrfr.addEventListener('click', function() {
-          fetch(`/../php/delete_program_frfr.php?id=${program.Program_Num}`, {
-            method: 'DELETE', // Use the DELETE method for deleting records
-          })
+          fetch(`/../php/delete_program_frfr.php?id=${program.Program_Num}`)
           .then(response => {
               if (!response.ok) {
                   throw new Error(`HTTP error! Status: ${response.status}`);

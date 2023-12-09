@@ -48,9 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
             let newLink = prompt('Enter new link:', doc.Link);
             if (newLink == null || newLink == '') return;
             
-            fetch(`/update_document.php?uin=${studentUIN}&id=${doc.Doc_Num}&link=${encodeURIComponent(newLink)}`, {
-              method: 'PUT', // Use the PUT method for updating records
-            })
+            fetch(`/update_document.php?uin=${studentUIN}&id=${doc.Doc_Num}&link=${encodeURIComponent(newLink)}`)
             .then(response => {
               if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -72,9 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log('Delete clicked for Doc_Num:', doc.Doc_Num);
 
             // Delete the document from the database
-            fetch(`/../php/delete_student_documents.php?uin=${studentUIN}&id=${doc.Doc_Num}`, {
-              method: 'DELETE', // Use the DELETE method for deleting records
-            })
+            fetch(`/../php/delete_student_documents.php?uin=${studentUIN}&id=${doc.Doc_Num}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
