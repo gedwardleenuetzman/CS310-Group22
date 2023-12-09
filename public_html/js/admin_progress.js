@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-    fetch('../php/admin_progress.php')
+    // Fetch Class Enrollments
+    fetch('../php/admin_progress.php?entity=class_enrollment')
         .then(response => response.json())
         .then(enrollments => {
             var enrollmentsTable = document.getElementById('enrollmentsTable');
@@ -19,7 +20,8 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error('Error fetching class enrollments:', error);
         });
 
-    fetch('../php/admin_progress.php')
+    // Fetch Cert Enrollments
+    fetch('../php/admin_progress.php?entity=cert_enrollment')
         .then(response => response.json())
         .then(certEnrollments => {
             var certEnrollmentsTable = document.getElementById('certEnrollmentsTable');
@@ -41,7 +43,8 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error('Error fetching cert enrollments:', error);
         });
 
-    fetch('../php/admin_progress.php')
+    // Fetch Intern Apps
+    fetch('../php/admin_progress.php?entity=intern_app')
         .then(response => response.json())
         .then(internApps => {
             var internAppsTable = document.getElementById('internAppsTable');

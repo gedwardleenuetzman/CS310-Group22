@@ -7,55 +7,52 @@ header('Content-Type: application/json');
 
 require_once './database_connection.php';
 
-// SQL query to fetch all class enrollments
-$sql = "SELECT CE_Num, UIN, Class_ID, Status, Semester, Year FROM Class_Enrollment";
+<?php
+// Start a new session
+session_start();
 
-$result = $conn->query($sql);
+// Set header to return JSON content
+header('Content-Type: application/json');
 
-$enrollments = array();
+require_once './database_connection.php';
 
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        $enrollments[] = $row;
+// Function to fetch data based on the entity
+function fetchData($entity) {
+    global $conn;
+
+    // Define SQL queries based on the entity
+    $sqlQueries = array(
+        'class_enrollment' => "SELECT CE_Num, UIN, Class_ID, Status, Semester, Year FROM Class_Enrollment",
+        'cert_enrollment' => "SELECT CertE_Num, UIN, Cert_ID, Status, Training_Status, Program_Num, Semester, Year FROM Cert_Enrollment",
+        'intern_app' => "SELECT IA_Num, UIN, Intern_ID, Status, Year FROM Intern_App"
+    );
+
+    // Check if the entity is valid
+    if (array_key_exists($entity, $sqlQueries)) {
+        $sql = $sqlQueries[$entity];
+        $result = $conn->query($sql);
+
+        $data = array();
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+            echo json_encode($data);
+        } else {
+            echo json_encode([]);
+        }
+    } else {
+        echo json_encode(['error' => 'Invalid entity specified.']);
     }
-    echo json_encode($enrollments);
-} else {
-    echo json_encode([]);
 }
 
-// SQL query to fetch all cert enrollments
-$sql = "SELECT CertE_Num, UIN, Cert_ID, Status, Training_Status, Program_Num, Semester, Year FROM Cert_Enrollment";
-
-$result = $conn->query($sql);
-
-$certEnrollments = array();
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        $certEnrollments[] = $row;
-    }
-    echo json_encode($certEnrollments);
+// Check if the entity parameter is provided
+if (isset($_GET['entity'])) {
+    $entity = $_GET['entity'];
+    fetchData($entity);
 } else {
-    echo json_encode([]);
-}
-
-// SQL query to fetch all intern apps
-$sql = "SELECT IA_Num, UIN, Intern_ID, Status, Year FROM Intern_App";
-
-$result = $conn->query($sql);
-
-$internApps = array();
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        $internApps[] = $row;
-    }
-    echo json_encode($internApps);
-} else {
-    echo json_encode([]);
+    echo json_encode(['error' => 'Entity parameter not provided.']);
 }
 
 // Handle form submissions
