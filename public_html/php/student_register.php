@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt1->close();
 
         // Second Insert Statement
-        $stmt2 = $conn->prepare("INSERT INTO College_Student(UIN, Gender, Hispanic_Latino, Race, US_Citizen, First_Generation, DoB, GPA, Major, Minor_1, Minor_2, Expected_Graduation, School, Classification, Phone, Student_Type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt2 = $conn->prepare("INSERT INTO College_Student (UIN, Gender, Hispanic_Latino, Race, US_Citizen, First_Generation, DoB, GPA, Major, Minor_1, Minor_2, Expected_Graduation, School, Classification, Phone, Student_Type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt2->bind_param("isbsbbsdsssissis", $uin, $gender, $hispanicLatino, $race, $usCitizen, $firstGenCollegeStudent, $dob, $gpa, $major, $minor1, $minor2, $expectedGraduation, $school, $classification, $phoneNumber, $studentType);
         $stmt2->execute();
         $stmt2->close();
