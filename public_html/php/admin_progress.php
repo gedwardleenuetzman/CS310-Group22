@@ -61,15 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Progress utility functions
 
 function updateClassEnrollment() {
-    // $updates = [];
-    // foreach ($_POST as $key => $value) {
-    //     if ($key != 'update' && $key != 'delete' && $key != 'insert' && $key != $primary_key) {
-    //         // $updates[] = $conn->real_escape_string($key) . " = " . "'" . $conn->real_scape_string($value)
-    //     }
-    // }
-    // $updates = implode(", ", $updates);
-    // $sql = "UPDATE {$table_name} SET {$updates} WHERE {$primary_key} = '{$_POST[$primary_key]}'";
-    // $conn->query($sql);
+    // updating class code
 }
 
 function deleteClassEnrollment() {
@@ -79,21 +71,6 @@ function deleteClassEnrollment() {
 
 function insertClassEnrollment() {
     // Insert new row
-    // $columns = [];
-    // $values = [];
-
-    // foreach ($POST as $key => $value) {
-    //     if ($key != 'update' && $key != 'delete' && $key != 'insert' && $key != $primary_key) {
-    //         $columns[] = $conn->real_escape_string($key);
-    //         $values[] = "'" . $conn->real_escape_string($value);
-    //     }
-    // }
-
-    // $columns = implode(", ", $columns);
-    // $values = implode(", ", $values);
-
-    // $sql = "INSERT INTO {$table_name} VALUES {$columns} VALUES '{$values}'";
-    // $conn->query($sql);
 }
 
 $conn->close();
