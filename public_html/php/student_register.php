@@ -7,6 +7,11 @@ header('Content-Type: application/json');
 
 require_once './database_connection.php';
 
+function formatDate($date) {
+    $date = date_create($date);
+    return date_format($date, "Y-m-d");
+}
+
 function sanitizeInput($data) {
     $data = trim($data);
     $data = stripslashes($data);
